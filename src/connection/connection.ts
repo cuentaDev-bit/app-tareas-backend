@@ -1,8 +1,8 @@
 "use strict";
 import { Sequelize } from "sequelize";
-import config from "../config/config.ts";
+import {config} from "../config/config.ts";
 
-const connection: Sequelize = new Sequelize(
+export const connection: Sequelize = new Sequelize(
   config.database,
   config.username,
   config.password,
@@ -14,5 +14,3 @@ const connection: Sequelize = new Sequelize(
     db[modelName].associate(db);
   }
 }); */
-
-export default connection;

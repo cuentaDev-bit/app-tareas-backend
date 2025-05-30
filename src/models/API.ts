@@ -7,9 +7,14 @@ import {
   CreationOptional,
   DataTypes,
 } from "sequelize";
-import connection from "../connection/connection.ts";
+import {connection} from "../connection/connection.ts";
 
-export default class API extends Model<
+/**
+ * API defines the APIs that can be listed as affected by a Task
+ * @param name string; declares the name of the API
+ * @param abbreviation string consisting of uppercase letters; declares how the API should be abbreviated
+ */
+export class API extends Model<
   InferAttributes<API>,
   InferCreationAttributes<API>
 > {

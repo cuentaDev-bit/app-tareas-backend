@@ -66,7 +66,7 @@ function getConfig({
   };
 }
 
-const config = getConfig({
+export const config = getConfig({
   enviroment: process.env.NODE_ENV,
   database: process.env.DB_NAME,
   username: process.env.DB_USERNAME,
@@ -74,5 +74,3 @@ const config = getConfig({
   host,
   dialect,
 });
-
-export default config;

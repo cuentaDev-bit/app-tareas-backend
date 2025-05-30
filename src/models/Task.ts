@@ -7,16 +7,16 @@ import {
   DataTypes,
 } from "sequelize";
 
-import connection from "../connection/connection.ts";
+import {connection} from "../connection/connection.ts";
 
-enum STATE {
+export enum STATE {
   TO_DO = "to do",
   IN_PROGRESS = "in progress",
   WAITING = "waiting",
   FINISHED = "finished",
 }
 
-export default class Task extends Model<InferAttributes<Task>, InferCreationAttributes<Task>> {
+export class Task extends Model<InferAttributes<Task>, InferCreationAttributes<Task>> {
   declare id: CreationOptional<number>;
   declare description: CreationOptional<string>;
   declare taskCode: string;

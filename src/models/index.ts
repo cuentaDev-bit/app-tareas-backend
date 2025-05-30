@@ -1,6 +1,6 @@
-import API from "./API.ts";
-import Task from "./Task.ts";
-import User from "./User.ts";
+import {API} from "./API.ts";
+import {Task} from "./Task.ts";
+import {User} from "./User.ts";
 
 interface Associable {
   associate(models: any): void;

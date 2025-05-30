@@ -1,8 +1,9 @@
 import { CreationAttributes, Model, ModelStatic } from "sequelize";
-import Result from "../types/Result.ts";
-import BaseError from "./BaseError.ts";
+import {Result} from "../types/Result.ts";
+import {BaseError} from "../errorHandling/baseError/BaseError.ts";
+import {ErrorUtils} from "../errorHandling/ErrorUtils.ts";
 
-export default class ModelQueryMaker<T extends Model> {
+export class ModelQueryMaker<T extends Model> {
   private model;
   private defaultModelQuery;
 
@@ -16,7 +17,7 @@ export default class ModelQueryMaker<T extends Model> {
       const result = await this.model.create(modelCreationParams);
       return result;
     } catch (err) {
-      const error = BaseError.ensureError(err);
+      const error = ErrorUtils.ensureError(err);
       const creationError = "Could not create model";
       throw new BaseError(creationError, {
         cause: error,

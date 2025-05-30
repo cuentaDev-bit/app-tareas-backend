@@ -6,13 +6,13 @@ import {
   CreationOptional,
   DataTypes,
 } from "sequelize";
-import connection from "../connection/connection.ts";
+import {connection} from "../connection/connection.ts";
 
 /**
  * 
  User: defines an User
  */
-export default class User extends Model<
+export class User extends Model<
   InferAttributes<User>,
   InferCreationAttributes<User>
 > {

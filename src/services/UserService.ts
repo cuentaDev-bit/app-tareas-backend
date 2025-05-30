@@ -1,8 +1,8 @@
 import { CreationAttributes } from "sequelize";
 import { User } from "../models/index.ts";
-import ModelQueryMaker from "../utils/ModelQueryMaker.ts";
+import {ModelQueryMaker} from "../utils/ModelQueryMaker.ts";
 
-export default class UserService {
+export class UserService {
     static userQueryMaker: ModelQueryMaker<User> = new ModelQueryMaker<User>(User);
 
     static async create(userCreationParams: CreationAttributes<User>): Promise<User>{

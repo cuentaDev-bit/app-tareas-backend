@@ -1,9 +1,9 @@
 
 import express from "express";
-import connection from "./connection/connection.ts";
+import {connection} from "./connection/connection.ts";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import routes from "./routes/routes.ts";
+import {routes} from "./routes/routes.ts";
 
 const app = express();
 app.use(cors());

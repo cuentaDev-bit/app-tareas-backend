@@ -11,7 +11,7 @@
       "allowImportingTsExtensions": true
     },
     "typedocOptions": {
-      "entryPoints": ["src/models/*.ts"],
+      "entryPoints": ["src/models/*.ts", "src/services/*.ts"],
       "out":"./docs/typedoc",
       "exclude": ["**/node_modules/**"]
 
