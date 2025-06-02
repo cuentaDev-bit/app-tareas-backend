@@ -1,21 +1,26 @@
 {
-    "compilerOptions": {
-      "target": "ES2022",
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "strict": true,
-      "skipLibCheck": true,
-      "noEmit": true,
-      "allowImportingTsExtensions": true
-    },
-    "typedocOptions": {
-      "entryPoints": ["src/models/*.ts", "src/services/*.ts"],
-      "out":"./docs/typedoc",
-      "exclude": ["**/node_modules/**"]
-
-    },
-    "include": ["src", "docs"]
-  }
-  
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/models/*.ts",
+      "src/services/*.ts",
+      "src/controllers/*.ts",
+      "src/routes/*.ts",
+      "src/validations/*.ts",
+      "src/errorHandling/**/*.ts",
+    ],
+    "out": "./docs/typedoc",
+    "exclude": ["**/node_modules/**"]
+  },
+  "include": ["src", "docs"]
+}

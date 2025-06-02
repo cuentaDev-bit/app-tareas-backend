@@ -1,7 +1,11 @@
 import { Router } from "express";
-import {UserController} from "../controllers/UserController.ts";
+import {userController} from "../controllers/UserController.ts";
 
+/**
+ * Contains the routes regarding User
+ */
 export const userRoutes = Router();
 
-userRoutes.post("/register", UserController.createUser);
+userRoutes.post("/register", userController.createUser);
+userRoutes.post("/login", userController.login);
 

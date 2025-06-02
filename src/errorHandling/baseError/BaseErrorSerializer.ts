@@ -1,14 +1,16 @@
 import {CompositeErrorSerializer} from "../CompositeErrorSerializer.ts";
 import {BaseError, Jsonable } from "./BaseError.ts";
 
-type SerializedBaseError = {
+export type SerializedBaseError = {
   name: string;
   message: string;
   cause?: object;
   context?: Jsonable;
 };
-
-class BaseErrorSerializer implements CompositeErrorSerializer {
+/**
+ * A class that serializes all baseErrors
+ */
+export class BaseErrorSerializer implements CompositeErrorSerializer {
   errorSerializers: CompositeErrorSerializer[];
 
   constructor(errorSerializers: CompositeErrorSerializer[] = []) {
@@ -19,6 +21,12 @@ class BaseErrorSerializer implements CompositeErrorSerializer {
     return error instanceof BaseError;
   }
 
+  /**
+   * serializes BaseErrors
+   * @param error 
+   * @param serializer a reference to another serializer to recursively serialize the errors in cause.
+   * @returns an object the name, message, cause, and context of the error if they exist.
+   */
   serialize(
     error: BaseError,
     serializer: CompositeErrorSerializer

@@ -16,6 +16,18 @@ export enum STATE {
   FINISHED = "finished",
 }
 
+/**
+ * A class that represents each task that a user has
+ * @param id An identifier for the DB.
+ * @param description Describes what a task means to acomplish.
+ * @param taskCode The code that identifies a task in the scrum software.
+ * @param state The current state of the task eg: completed, in progress.
+ * @param enviroment The enviroment that is affected by the task.
+ * @param enviromentChangeDate When the task was last changed from an eviroment.
+ * @param lastUpdateDate When the task was last updated.
+ * @param notes extra information.
+ */
+
 export class Task extends Model<InferAttributes<Task>, InferCreationAttributes<Task>> {
   declare id: CreationOptional<number>;
   declare description: CreationOptional<string>;

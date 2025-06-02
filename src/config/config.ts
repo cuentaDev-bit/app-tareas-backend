@@ -19,6 +19,7 @@ interface ConfigTemplate {
   password?: string;
   host: string;
   dialect: string;
+  secret: string;
 }
 
 let host: string;
@@ -47,6 +48,7 @@ switch (process.env.NODE_ENV) {
 
 if (process.env.DB_NAME == undefined) throw new Error("Database Name Empty");
 if (process.env.DB_USERNAME == undefined) throw new Error("Username Empty");
+if (process.env.SECRET == undefined) throw new Error("Secret Empty");
 
 function getConfig({
   enviroment,
@@ -55,6 +57,7 @@ function getConfig({
   password,
   host,
   dialect,
+  secret
 }: ConfigTemplate & Options): ConfigTemplate & Options {
   return {
     enviroment,
@@ -63,6 +66,7 @@ function getConfig({
     database,
     host,
     dialect,
+    secret
   };
 }
 
@@ -71,6 +75,7 @@ export const config = getConfig({
   database: process.env.DB_NAME,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
+  secret: process.env.SECRET,
   host,
   dialect,
 });

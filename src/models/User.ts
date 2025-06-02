@@ -6,11 +6,15 @@ import {
   CreationOptional,
   DataTypes,
 } from "sequelize";
-import {connection} from "../connection/connection.ts";
+import { connection } from "../connection/connection.ts";
+import { PasswordManager } from "../classes/PasswordManager.ts";
 
 /**
- * 
- User: defines an User
+ * User: defines an User
+ * @param id An identifier for the DB
+ * @param name The name of the user
+ * @param email the email of the user
+ * @param password the password of the user, should be hashed.
  */
 export class User extends Model<
   InferAttributes<User>,
@@ -56,3 +60,9 @@ User.init(
     modelName: "User",
   }
 );
+
+User.beforeCreate(async (user) => {
+  const plainTextPassword = user.password;
+  const hashedPassword = await PasswordManager.hashPassword(plainTextPassword);
+  user.password = hashedPassword;
+});
